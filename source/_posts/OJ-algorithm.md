@@ -3,7 +3,7 @@ title: OJ & 算导
 date: 2017-08-18 17:58:32
 tags: 
 - OJ
-- algorithm
+- Algorithm
 ---
 
 眨眼间已是八月中旬，不得不让人感慨时不我待！

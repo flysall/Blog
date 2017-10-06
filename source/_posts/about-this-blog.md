@@ -1,7 +1,7 @@
 ---
 title: 关于本博客
 date: 2017-08-17 16:28:26
-tags: blogself
+tags: Other
 ---
 
 ## 博客起源

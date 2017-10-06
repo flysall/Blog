@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="恰逢国庆长假，时间相对比较充裕，于是给自己的电脑装上了win10+centos7双系统。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装win10与centos7双系统注意事项回顾">
+<meta property="og:url" content="http://yoursite.com/2017/10/04/windows-centos/index.html">
+<meta property="og:site_name" content="flysall&#39;s home">
+<meta property="og:description" content="恰逢国庆长假，时间相对比较充裕，于是给自己的电脑装上了win10+centos7双系统。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2017/10/04/windows-centos/centos.PNG">
+<meta property="og:image" content="http://yoursite.com/2017/10/04/windows-centos/centos2.PNG">
+<meta property="og:updated_time" content="2017-10-04T14:38:30.468Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装win10与centos7双系统注意事项回顾">
+<meta name="twitter:description" content="恰逢国庆长假，时间相对比较充裕，于是给自己的电脑装上了win10+centos7双系统。">
+<meta name="twitter:image" content="http://yoursite.com/2017/10/04/windows-centos/centos.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/04/windows-centos/"/>
+
+
+
+
+
+  <title>安装win10与centos7双系统注意事项回顾 | flysall's home</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">flysall's home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/04/windows-centos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="flysall">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/blogImg/myavatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="flysall's home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">安装win10与centos7双系统注意事项回顾</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-04T21:02:32+08:00">
+                2017-10-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>恰逢国庆长假，时间相对比较充裕，于是给自己的电脑装上了win10+centos7双系统。<br><a id="more"></a><br>想来大一快结束时我买回电脑至今，win10一直用得不错，所以我也没什么动力去折腾系统。大二下的时候用《鸟哥的Linux私房菜》学习过一段时间Linux，也只是在virtualBox虚拟机下运行，无奈电脑性能不够强劲，运行大型程序时卡得不行。这段时间打算把使用重心转移到Linux上面，于是给自己电脑装上了双系统，过程有点曲折，出了很多问题，差不多花了一个下午的时间才最终得以完美运行，看着不太美观的GNOME桌面心里还是挺感慨的，想当年刚买回来电脑时连分区都不会，这回第一次真机装系统确实有点虚，于是写下这篇博文记录一下安装过程中的<strong>重要事项</strong>。参考的教程链接入下：<a href="http://xueliang.org/article/detail/20160912181035032" target="_blank" rel="external">安装 Windows 10 + Centos 7 双系统共存</a>、<a href="http://m.blog.csdn.net/bajiudongfeng/article/details/47732377" target="_blank" rel="external">u盘安装centos7 /dev/root does not exist 导致无法安装解决方案。</a></p>
+<h2 id="制作U盘启动"><a href="#制作U盘启动" class="headerlink" title="制作U盘启动"></a>制作U盘启动</h2><ul>
+<li>在windows下压缩卷后得到一块空闲的分区后不要对其分配盘符</li>
+<li>用UltralSO制作U盘启动盘，要以管理员权限运行UltralSO</li>
+<li>选择菜单栏里的 [启动] → [写入硬盘映像]，点击写入按钮后刚开始可能会显示无响应，这是正常的，耐心等待即可。</li>
+<li><strong>将得到的U盘启动重命名为一个简单的字符串，比如<code>DDD</code></strong></li>
+</ul>
+<h2 id="thinkpad调整BIOS引导顺序（能否成功极有可能是个概率事件）"><a href="#thinkpad调整BIOS引导顺序（能否成功极有可能是个概率事件）" class="headerlink" title="thinkpad调整BIOS引导顺序（能否成功极有可能是个概率事件）"></a>thinkpad调整BIOS引导顺序（能否成功极有可能是个概率事件）</h2><ul>
+<li>重启电脑，按F12进入BIOS（从Boot Menu可以看到启动顺序，第一个是Windows Boot Manager, U盘启动是在第三个）</li>
+<li>键入Tab进入App Menu，键入Enter进入Setup，依次进入Security–&gt;Secure Boot，将Secure Boot设为Disabled。然后键入Esc返回上级界面，依次进入Startup–&gt;UEFI/LegacyBoot，设为Both、LegacyFirst, 设置CSM Support为Yes。现在可以进入Boot菜单，启动顺序为<strong>U盘第一， Windows Boot Manager第二</strong>。F10保存退出。</li>
+<li>经过上一步，不出意外的话应该就能进入centos7的安装引导界面。<img src="/2017/10/04/windows-centos/centos.PNG" alt="centos安装引导界面" title="centos安装引导界面"></li>
+<li><strong>键入e对安装进行修改，得到类似下面的一串字符<code>vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207x20x86_64 rd.live.check quiet</code>,将<code>CentOS\x207x20x86_64</code>改为我们在第一步制作U盘启动盘时重命名的字符，即<code>DDD</code>，于是修改后的字符串如下<code>vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=DDD rd.live.check quiet</code></strong>，回车之后等待片刻，即可得到如下画面：<img src="/2017/10/04/windows-centos/centos2.PNG" alt="centos安装界面" title="centos安装界面">
+</li>
+</ul>
+<h2 id="安装centos"><a href="#安装centos" class="headerlink" title="安装centos"></a>安装centos</h2><ul>
+<li>选择中文安装</li>
+<li>安装时不要选择最小安装（虽然安装速度比较快，但是…)，选择GNOME桌面并选择一些基础软件和开发环境。</li>
+<li>合理分区</li>
+<li>耐心等待，可以去泡十杯咖啡。</li>
+<li><strong>安装完成后拔出U盘</strong>，重启电脑，不出意外应该可以看到多重引导界面，可以选择启动centos或者windows</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/assets/blogImg/weixin.png" alt="flysall WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/09/tab-or-space/" rel="next" title="空格还是tab？">
+                <i class="fa fa-chevron-left"></i> 空格还是tab？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/05/yum-error/" rel="prev" title="一次不太友好的yum之旅">
+                一次不太友好的yum之旅 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/blogImg/myavatar.jpg"
+               alt="flysall" />
+          <p class="site-author-name" itemprop="name">flysall</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/flysall" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/p/1005055496887658/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/flysall/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/159739786/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      豆瓣
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#制作U盘启动"><span class="nav-number">1.</span> <span class="nav-text">制作U盘启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thinkpad调整BIOS引导顺序（能否成功极有可能是个概率事件）"><span class="nav-number">2.</span> <span class="nav-text">thinkpad调整BIOS引导顺序（能否成功极有可能是个概率事件）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装centos"><span class="nav-number">3.</span> <span class="nav-text">安装centos</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">flysall</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Pisces
+    </a>
+  </div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
