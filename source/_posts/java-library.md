@@ -23,7 +23,8 @@ tags:
 ## 数据库
 | 库名                                                                             | 文档                                                                          |
 | :---: | :---: |
-| [MyBatis](http://www.mybatis.org/mybatis-3/) | [API](http://www.mybatis.org/mybatis-3/apidocs/reference/packages.html)                    |
+| [MyBatis](http://www.mybatis.org/mybatis-3/) | [API](http://www.mybatis.org/mybatis-3/apidocs/index.html)                    |
+| [redis](https://redis.io/)                   | [API](http://javadox.com/redis.clients/jedis/2.8.0/overview-summary.html)
 
 ## 爬虫
 | 库名                                                                             | 文档                                                                          |
